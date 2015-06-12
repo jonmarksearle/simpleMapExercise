@@ -1,0 +1,12 @@
+iframe {
+	height: 100%;
+	width: 50%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border:1px solid #333;
+}
+
+#map2 {
+	margin-left: 50%;
+}
