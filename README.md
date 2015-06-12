@@ -1,4 +1,5 @@
-# simpleLeafletExercise
+# simpleMapExercise
+
 This Exercise is based on the road accident data of Vicoria and can be downloaded [here] (https://www.data.vic.gov.au/data/dataset/road-crash-information-system-data-extract-may). The dataset is a csv-file containing the location, data, time and several other information regarding the road accidents.
 
 In the following two different approaches for a simple visualisation are described. First the Leaflet framework is used to load a subset of the data and display them on a map. In a second approach the CartoDB platform is used to display the data. 
