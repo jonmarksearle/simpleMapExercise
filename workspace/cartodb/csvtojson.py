@@ -20,7 +20,7 @@ for row in data:
             no = row[0]
             lng = float(row[17])
             lat = float(row[18])
-            date = datetime.strptime(row[3]+" "+row[4], "%m/%d/%Y %H.%M.%S")
+            date = datetime.strptime(row[3]+" "+row[4], "%d/%m/%Y %H.%M.%S")
             accident = row[6]
             entry = {
                 "type": "Feature",
