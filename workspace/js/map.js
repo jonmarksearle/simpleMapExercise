@@ -12,7 +12,7 @@ map.addLayer(osmLayer);
 
 
 /* Add data from csv to map */
-d3.csv("/workspace/data/test1.csv", function(d) {
+d3.csv("/workspace/data/SIS_DATASUPPLY_may_subset.csv", function(d) {
     return {
         id: d["ACCIDENT_NO"],
         lng: d[" LONGITUDE"],
@@ -28,7 +28,6 @@ d3.csv("/workspace/data/test1.csv", function(d) {
             "type": "Feature",
             "properties": {
                 "name": entry.id,
-                "amenity": "Baseball Stadium",
                 "popupContent": "<p><b>" +entry.id+ 
                     "</b><br>Date: " +entry.date+ 
                     "<br>Time: " +entry.time+ 
