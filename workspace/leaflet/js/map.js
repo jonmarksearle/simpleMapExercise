@@ -12,7 +12,7 @@ map.addLayer(osmLayer);
 
 
 /* Add data from csv to map */
-d3.csv("/leaflet/data/SIS_DATASUPPLY_14.csv", function(d) {
+d3.csv("data/SIS_DATASUPPLY_14.csv", function(d) {
     return {
         id:    d["ACCIDENT_NO"],
         lng:   d["LONGITUDE"],
@@ -28,9 +28,10 @@ d3.csv("/leaflet/data/SIS_DATASUPPLY_14.csv", function(d) {
 		speed: d["SPEED_ZONE"]		
     };
 }, function(error, rows) {
-    geojson1 = [];
+    var geojson1 = [];
     $.each(rows, function(item, entry) {
-			tmp = {
+    	if (!isNaN(entry.lng) && !isNaN(entry.lat)) {
+			var tmp = {
 				"type": "Feature",
 				"properties": {
 					"name": entry.id,
@@ -49,8 +50,9 @@ d3.csv("/leaflet/data/SIS_DATASUPPLY_14.csv", function(d) {
 					"type": "Point",
 					"coordinates": [entry.lng, entry.lat]
 				}
-        };
-       geojson1.push(tmp);
+			};
+			geojson1.push(tmp);
+    	};
     })
     L.geoJson(geojson1, {
         onEachFeature: onEachFeature
