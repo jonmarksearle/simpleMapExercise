@@ -12,7 +12,7 @@ map.addLayer(osmLayer);
 
 
 /* Add data from csv to map */
-d3.csv("data/SIS_DATASUPPLY_14.csv", function(d) {
+d3.csv("data/SIS_DATASUPPLY_2014_fatal.csv", function(d) {
     return {
         id:    d["ACCIDENT_NO"],
         lng:   d["LONGITUDE"],
