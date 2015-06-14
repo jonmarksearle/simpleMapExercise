@@ -30,7 +30,9 @@ d3.csv("data/SIS_DATASUPPLY_14.csv", function(d) {
 }, function(error, rows) {
     var geojson1 = [];
     $.each(rows, function(item, entry) {
-    	if (!isNaN(entry.lng) && !isNaN(entry.lat)) {
+    	if (isNaN(entry.lng) || isNaN(entry.lat)) {
+    		console.log(entry);
+    	} else {
 			var tmp = {
 				"type": "Feature",
 				"properties": {
@@ -53,7 +55,7 @@ d3.csv("data/SIS_DATASUPPLY_14.csv", function(d) {
 			};
 			geojson1.push(tmp);
     	};
-    })
+    });
     L.geoJson(geojson1, {
         onEachFeature: onEachFeature
     }).addTo(map);
